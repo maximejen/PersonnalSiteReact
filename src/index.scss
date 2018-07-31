@@ -1,0 +1,26 @@
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "../node_modules/bulma/sass/utilities/functions";
+
+$purple: hsl(275, 87%, 45%);
+$purple-invert: findColorInvert($purple);
+
+@import "../node_modules/bulma/sass/utilities/derived-variables.sass";
+
+$addColors: (
+        "purple":($purple, $purple-invert),
+);
+
+$colors: map-merge($colors, $addColors);
+
+@import '../node_modules/bulma/bulma';
+//@import '../node_modules/bulma-extensions';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  font-family: "Roboto", sans-serif;
+}

@@ -4,6 +4,11 @@ import { NavLink } from 'react-router-dom'
 import MenuBurger from "./header/MenuBurger";
 import MenuItem from "./header/MenuItem";
 
+import '../../styles/App.css';
+
+import { translate } from 'react-i18next';
+import i18n from 'i18next';
+
 class Header extends React.Component {
     state = {
         isActive: false,
@@ -33,6 +38,7 @@ class Header extends React.Component {
                                 marginRight: 15
                             }}
                             src="logo.svg"
+                            className="App-logo"
                             width="50px"
                             alt="logo"
                         />
@@ -42,7 +48,7 @@ class Header extends React.Component {
                 </div>
                 <div className={this.state.isActive ? 'navbar-menu is-active' : 'navbar-menu'}>
                     <div className="navbar-start">
-                        <MenuItem redirectTo={"/blog"} text={"Projects"} iconClass={"fas fa-code"}/>
+                        <MenuItem redirectTo={"/blog"} text={ this.props.t('nav.projects', { framework: "react-i18next" }) } iconClass={"fas fa-code"}/>
                         {/*<a className="navbar-item">*/}
                             {/*<span className="icon" style={{marginRight: 5}}>*/}
                                 {/*<i className="fab fa-lg fa-medium"></i>*/}
@@ -83,6 +89,12 @@ class Header extends React.Component {
                                 <i className="fab fa-lg fa-linkedin"></i>
                             </span>
                         </a>
+                        <button className="navbar-item" onClick={() => i18n.changeLanguage('fr')}>
+                            <img src="fr.png"></img>
+                        </button>
+                        <button className="navbar-item" onClick={() => i18n.changeLanguage('en')}>
+                            <img src="en.png"></img>
+                        </button>
                     </div>
                 </div>
             </nav>
@@ -90,4 +102,4 @@ class Header extends React.Component {
     }
 }
 
-export default Header
+export default translate('common')(Header);
