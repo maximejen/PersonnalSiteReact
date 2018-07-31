@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import {NavLink} from 'react-router-dom'
 
-class MenuItem extends React.Component {
+class NavItem extends React.Component {
     constructor(props) {
         super(props);
 
@@ -42,4 +42,4 @@ class MenuItem extends React.Component {
     }
 }
 
-export default MenuItem
+export default NavItem

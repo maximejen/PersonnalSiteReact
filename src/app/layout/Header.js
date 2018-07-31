@@ -1,24 +1,43 @@
 import React from 'react'
 
 import { NavLink } from 'react-router-dom'
-import MenuBurger from "./header/MenuBurger";
-import MenuItem from "./header/MenuItem";
+import NavBurger from "./header/NavBurger";
+import NavItem from "./header/NavItem";
 
 import '../../styles/App.css';
 
 import { translate } from 'react-i18next';
 import i18n from 'i18next';
+import NavLanguagePicker from "./header/NavLanguagePicker";
+import NavSocialMedia from "./header/NavSocialMedia";
 
 class Header extends React.Component {
-    state = {
-        isActive: false,
+
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isActive: false,
+            i18n: i18n,
+            locale: i18n.language
+        };
+
+        this.changeLocale = this.changeLocale.bind(this);
     }
 
     toggleNav = () => {
         this.setState(prevState => ({
             isActive: !prevState.isActive
-        }))
-    }
+        }));
+    };
+
+    changeLocale(newLocale) {
+        this.state.i18n.changeLanguage(newLocale);
+        this.setState(prevState => ({
+            locale: newLocale
+        }));
+    };
 
     render() {
         return (
@@ -44,11 +63,11 @@ class Header extends React.Component {
                         />
                         <span>{'{Maxime JENNY.}'}</span>
                     </NavLink>
-                    <MenuBurger onClick={this.toggleNav}/>
+                    <NavBurger onClick={this.toggleNav}/>
                 </div>
                 <div className={this.state.isActive ? 'navbar-menu is-active' : 'navbar-menu'}>
                     <div className="navbar-start">
-                        <MenuItem redirectTo={"/blog"} text={ this.props.t('nav.projects', { framework: "react-i18next" }) } iconClass={"fas fa-code"}/>
+                        <NavItem redirectTo={"/blog"} text={ this.props.t('nav.projects', { framework: "react-i18next" }) } iconClass={"fas fa-code"}/>
                         {/*<a className="navbar-item">*/}
                             {/*<span className="icon" style={{marginRight: 5}}>*/}
                                 {/*<i className="fab fa-lg fa-medium"></i>*/}
@@ -74,27 +93,11 @@ class Header extends React.Component {
                         {/*</div>*/}
                     </div>
                     <div className="navbar-end">
-                        <a className="navbar-item" href="https://github.com/maximejen" target='_blank'>
-                            <span className="icon">
-                                <i className="fab fa-lg fa-github"></i>
-                            </span>
-                        </a>
-                        <a className="navbar-item" href="https://twitter.com/maxime_jenny" target='_blank'>
-                            <span className="icon has-text-info" style={{color: '#0084FF'}}>
-                                <i className="fab fa-lg fa-twitter"></i>
-                            </span>
-                        </a>
-                        <a className="navbar-item" href="https://www.linkedin.com/in/maxime-jenny/" target='_blank'>
-                            <span className="icon" style={{color: '#0077B5'}}>
-                                <i className="fab fa-lg fa-linkedin"></i>
-                            </span>
-                        </a>
-                        <button className="navbar-item" onClick={() => i18n.changeLanguage('fr')}>
-                            <img src="fr.png"></img>
-                        </button>
-                        <button className="navbar-item" onClick={() => i18n.changeLanguage('en')}>
-                            <img src="en.png"></img>
-                        </button>
+                        <NavSocialMedia href={"https://www.github.com/maximejen"} color={'#FFFFFF'} target={'_blank'} iconName={"github"}/>
+                        <NavSocialMedia href={"https://www.twitter.com/maxime_jenny/"} color={'#0084FF'} target={'_blank'} iconName={"twitter"}/>
+                        <NavSocialMedia href={"https://www.linkedin.com/in/maxime-jenny/"} color={'#0077B5'} target={'_blank'} iconName={"linkedin"}/>
+                        <NavLanguagePicker locale={"fr"} actualLocale={this.state.locale} onClick={this.changeLocale}/>
+                        <NavLanguagePicker locale={"en"} actualLocale={this.state.locale} onClick={this.changeLocale}/>
                     </div>
                 </div>
             </nav>

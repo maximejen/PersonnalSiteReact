@@ -24,3 +24,18 @@ body {
 header {
   font-family: "Roboto", sans-serif;
 }
+
+button.navbar-item {
+  background-color: #363636;
+  border: none;
+  text-decoration: none;
+}
+
+.navbar-item:hover {
+  background-color: #292929;
+  cursor: pointer;
+}
+
+.navbar-item.activated_language {
+  background-color: #666666;
+}

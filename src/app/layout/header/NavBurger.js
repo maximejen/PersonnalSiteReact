@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class MenuBurger extends React.Component {
+class NavBurger extends React.Component {
     static propTypes = {
         onClick: PropTypes.func,
     };
@@ -17,4 +17,4 @@ class MenuBurger extends React.Component {
     }
 }
 
-export default MenuBurger
+export default NavBurger
