@@ -26,7 +26,7 @@ class NavItem extends React.Component {
         let toRender;
         if (this.state.hasIcon) {
             toRender =
-                <NavLink className="navbar-item" to={this.props.redirectTo}>
+                <NavLink className="navbar-item centered" to={this.props.redirectTo}>
                     <span className="icon has-text-primary" style={{marginRight: 5}}>
                         <i className={this.props.iconClass}/>
                     </span>
@@ -34,7 +34,7 @@ class NavItem extends React.Component {
                 </NavLink>;
         } else {
             toRender =
-                <NavLink className="navbar-item" to={this.props.redirectTo}>
+                <NavLink className="navbar-item centered" to={this.props.redirectTo}>
                     {this.props.text}
                 </NavLink>
         }

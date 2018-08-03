@@ -15,27 +15,54 @@ $colors: map-merge($colors, $addColors);
 @import '../node_modules/bulma/bulma';
 //@import '../node_modules/bulma-extensions';
 
+// Header Zone
+header {
+  font-family: "Roboto", sans-serif;
+}
+
+button.language_picker {
+  border: none;
+  text-decoration: none;
+  padding: 1em;
+}
+
+.language_picker:hover {
+  cursor: pointer;
+}
+
+.language_picker.activated_language {
+  height: 100%;
+}
+
+.nav-social-media {
+  padding: 5px 10px 0px;
+}
+
+// Body Zone
 body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
 }
 
-header {
-  font-family: "Roboto", sans-serif;
+.project-card {
+  padding: 1rem;
 }
 
-button.navbar-item {
-  background-color: #363636;
-  border: none;
-  text-decoration: none;
+.project-columns {
+  padding: 5rem;
 }
 
-.navbar-item:hover {
-  background-color: #292929;
-  cursor: pointer;
+// Footer Zone
+$footer-background-color: #fafafa;
+
+.footer {
+  padding: 2rem 1.5rem 1rem; // change he padding to make the footer smaller so that it doesn't take too much in the end of the page.
 }
 
-.navbar-item.activated_language {
-  background-color: #666666;
+// General Zone
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

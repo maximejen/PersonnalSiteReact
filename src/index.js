@@ -32,4 +32,4 @@ ReactDOM.render((
     </I18nextProvider>
 ), document.getElementById('root'));
 
-registerServiceWorker()
+registerServiceWorker();

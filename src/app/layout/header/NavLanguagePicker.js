@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import i18n from "i18next";
 
 class NavLanguagePicker extends React.Component {
     constructor(props) {
@@ -12,7 +11,9 @@ class NavLanguagePicker extends React.Component {
     static propTypes = {
         locale: PropTypes.string,
         actualLocale: PropTypes.string,
-        onClick: PropTypes.func
+        onClick: PropTypes.func,
+        color: PropTypes.string,
+        activatedColor: PropTypes.string
     };
 
     handleClick() {
@@ -23,14 +24,15 @@ class NavLanguagePicker extends React.Component {
         let toRender;
 
         if (this.props.locale === this.props.actualLocale)
-            toRender = <button className={"navbar-item activated_language lang_" + this.props.locale}
-                               onClick={this.handleClick}>
-                <img src={this.props.locale + ".png"}/>
-            </button>
+            toRender = <button className={"language_picker activated_language lang_" + this.props.locale}
+                               onClick={this.handleClick} style={{backgroundColor: this.props.activatedColor}}>
+                <img src={this.props.locale + ".png"} alt={this.props.locale}/>
+            </button>;
         else
-            toRender = <button className={"navbar-item lang_" + this.props.locale} onClick={this.handleClick}>
-                <img src={this.props.locale + ".png"}/>
-            </button>
+            toRender = <button className={"language_picker lang_" + this.props.locale} onClick={this.handleClick}
+                               style={{backgroundColor: this.props.color}}>
+                <img src={this.props.locale + ".png"} alt={this.props.locale}/>
+            </button>;
         return toRender;
     }
 }
