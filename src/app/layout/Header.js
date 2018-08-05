@@ -45,8 +45,7 @@ class Header extends React.Component {
                 <div className="navbar-brand">
                     <NavLink
                         className="navbar-item"
-                        to="/"
-                        activeClassName="is-active">
+                        to="/">
                         <img
                             style={{
                                 borderTopLeftRadius: '50%',
@@ -66,7 +65,7 @@ class Header extends React.Component {
                 </div>
                 <div className={this.state.isBurgerMode ? 'navbar-menu is-active' : 'navbar-menu'}>
                     <div className="navbar-start">
-                        <NavItem redirectTo={"/blog"} text={ this.props.t('nav.projects', { framework: "react-i18next" }) } iconClass={"fas fa-code"}/>
+                        <NavItem redirectTo={"/projects"} text={ this.props.t('nav.projects', { framework: "react-i18next" }) } iconClass={"fas fa-code"}/>
                     </div>
                     <div className="navbar-end">
                         <NavSocialMediaHub isActive={this.state.isBurgerMode}/>

@@ -4,6 +4,8 @@
 $purple: hsl(275, 87%, 45%);
 $purple-invert: findColorInvert($purple);
 
+$primary: rgb(240, 150, 70);
+
 @import "../node_modules/bulma/sass/utilities/derived-variables.sass";
 
 $addColors: (
@@ -26,11 +28,12 @@ button.language_picker {
   padding: 1em;
 }
 
-.language_picker:hover {
+button.language_picker:hover {
   cursor: pointer;
+  background-color: #292929;
 }
 
-.language_picker.activated_language {
+button.language_picker.activated_language {
   height: 100%;
 }
 
