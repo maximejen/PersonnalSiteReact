@@ -9,7 +9,7 @@ class Footer extends React.Component {
             <div className="container">
                 <div className="content has-text-centered">
                     <p>
-                        Copyright <span className={"far fa-copyright"}></span> Maxime JENNY&nbsp;-&nbsp;{ this.props.t('footer.madein', { framework: "react-i18next" }) } <a href={'https://reactjs.org'}>ReactJS</a>
+                    Copyright <span className={"far fa-copyright"}></span> Maxime JENNY&nbsp;-&nbsp;{ this.props.t('footer.madein', { framework: "react-i18next" }) }&nbsp;<a href={'https://reactjs.org'}>ReactJS</a>
                     </p>
                     <div className={"footer-social-hub"}>
                         <FooterSocialMedia href={"https://www.github.com/maximejen"} color={'#292929'} target={'_blank'} iconName={"github"}/>

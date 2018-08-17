@@ -1,8 +1,13 @@
 {
-    "nav": {
-        "projects": "Projects"
-    },
-    "footer": {
-        "madein": "Made in "
-    }
+  "nav": {
+    "projects": "Projects"
+  },
+  "body": {
+    "main-description": "Computer Science Student at {Epitech.} Strasbourg, France"
+  },
+  "footer": {
+    "madein": "Made in"
+  },
+  "from": "from",
+  "to": "to"
 }

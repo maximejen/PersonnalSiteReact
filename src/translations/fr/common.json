@@ -2,7 +2,12 @@
   "nav": {
     "projects": "Projets"
   },
+  "body": {
+    "main-description": "Étudiant en informatique à {Epitech.} Strasbourg"
+  },
   "footer": {
-    "madein": "Créé en "
-  }
+    "madein": "Créé en"
+  },
+  "from": "du",
+  "to": "au"
 }

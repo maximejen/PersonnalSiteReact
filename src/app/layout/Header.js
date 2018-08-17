@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 import { NavLink } from 'react-router-dom'
 import NavBurger from "./header/NavBurger";
@@ -22,8 +23,12 @@ class Header extends React.Component {
             locale: i18n.language
         };
 
-        this.changeLocale = this.changeLocale.bind(this);
+        this.handleChangeLocale = this.handleChangeLocale.bind(this);
     }
+
+    static propTypes = {
+        onChangeLocale: PropTypes.func
+    };
 
     toggleNav = () => {
         this.setState(prevState => ({
@@ -31,11 +36,13 @@ class Header extends React.Component {
         }));
     };
 
-    changeLocale(newLocale) {
+    handleChangeLocale(newLocale) {
+        this.props.onChangeLocale(newLocale);
         this.state.i18n.changeLanguage(newLocale);
         this.setState(prevState => ({
             locale: newLocale
         }));
+        this.props.onChangeLocale(newLocale);
     };
 
     render() {
@@ -59,7 +66,6 @@ class Header extends React.Component {
                             width="50px"
                             alt="logo"
                         />
-                        <span>{'{Maxime JENNY.}'}</span>
                     </NavLink>
                     <NavBurger onClick={this.toggleNav} isActive={this.state.isBurgerMode}/>
                 </div>
@@ -69,7 +75,7 @@ class Header extends React.Component {
                     </div>
                     <div className="navbar-end">
                         <NavSocialMediaHub isActive={this.state.isBurgerMode}/>
-                        <NavLanguagePickerHub actualLocale={this.state.locale} onClick={this.changeLocale} isBurgerMode={this.state.isBurgerMode}/>
+                        <NavLanguagePickerHub actualLocale={this.state.locale} onClick={this.handleChangeLocale} isBurgerMode={this.state.isBurgerMode}/>
                     </div>
                 </div>
             </nav>
