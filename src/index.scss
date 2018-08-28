@@ -15,7 +15,8 @@ $addColors: (
 $colors: map-merge($colors, $addColors);
 
 @import '../node_modules/bulma/bulma';
-//@import '../node_modules/bulma-extensions';
+@import '~bulma-extensions/dist/css/bulma-extensions.min.css';
+//@import '~bulma-extensions/bulma-carousel/dist/css/bulma-carousel.min.css';
 
 // Header Zone ======================================
 header {
@@ -49,7 +50,6 @@ button.language_picker.activated_language {
 
 .bgimg {
   min-height: 100%;
-  background: linear-gradient(to bottom, #000000AA 40%, #f09646AA 200%) center, url("http://hdqwalls.com/wallpapers/star-nebula-glow.jpg");
   background-size: cover;
   display: flex;
   align-items: center;
@@ -65,6 +65,25 @@ body {
 
 .project-card {
   padding: 1rem;
+  background-color: white;
+  -webkit-filter: brightness(100%);
+  -webkit-border-radius: 2%;
+  -moz-border-radius: 2%;
+  border-radius: 2%;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.project-card:hover {
+  -webkit-filter: brightness(95%);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .project-columns {
@@ -97,10 +116,6 @@ body {
   margin: auto;
   width: var(--line-width);
   animation-name: unlargeAnimation
-}
-
-.home-content {
-  color: white;
 }
 
 .content-home-page {
@@ -152,5 +167,12 @@ $footer-background-color: #fafafa;
   to {
     width: var(--line-width);
   }
+}
+
+// hidden parts:
+
+div.layout > div > header {
+  visibility: hidden;
+  display: none;
 }
 

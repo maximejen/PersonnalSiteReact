@@ -9,9 +9,7 @@ import Footer from './layout/Footer'
 import Router from './layout/Router'
 
 // Apollo Configuration for Wrapping
-import {
-    ApolloProvider,
-} from 'react-apollo';
+import { ApolloProvider } from 'react-apollo';
 
 import ApolloClient from "apollo-boost";
 import i18n from "i18next";

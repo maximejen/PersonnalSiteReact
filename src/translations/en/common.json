@@ -3,7 +3,16 @@
     "projects": "Projects"
   },
   "body": {
-    "main-description": "Computer Science Student at {Epitech.} Strasbourg, France"
+    "main-description": "Computer Science Student at {Epitech.} Strasbourg, France",
+    "project": {
+      "title": "My Projects",
+      "subtitle": "You'll find here a non exhaustive list of my projects.",
+      "description": "Description"
+    },
+    "technology": {
+      "title": "Technologies that I used",
+      "subtitle": "Here are the technologies that I used in all my projects"
+    }
   },
   "footer": {
     "madein": "Made in"

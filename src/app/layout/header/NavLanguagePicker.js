@@ -26,12 +26,12 @@ class NavLanguagePicker extends React.Component {
         if (this.props.locale === this.props.actualLocale)
             toRender = <button className={"language_picker activated_language lang_" + this.props.locale}
                                onClick={this.handleClick} style={{backgroundColor: this.props.activatedColor}}>
-                <img src={this.props.locale + ".png"} alt={this.props.locale}/>
+                <img src={"/" + this.props.locale + ".png"} alt={this.props.locale}/>
             </button>;
         else
             toRender = <button className={"language_picker lang_" + this.props.locale} onClick={this.handleClick}
                                style={{backgroundColor: this.props.color}}>
-                <img src={this.props.locale + ".png"} alt={this.props.locale}/>
+                <img src={"/" + this.props.locale + ".png"} alt={this.props.locale}/>
             </button>;
         return toRender;
     }

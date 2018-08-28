@@ -61,10 +61,9 @@ class Header extends React.Component {
                                 borderBottomRightRadius: '50%',
                                 marginRight: 15
                             }}
-                            src="logo.svg"
-                            className="App-logo"
+                            src="/logo.svg"
                             width="50px"
-                            alt="logo"
+                            alt="{Maxime JENNY.}"
                         />
                     </NavLink>
                     <NavBurger onClick={this.toggleNav} isActive={this.state.isBurgerMode}/>
