@@ -26,12 +26,14 @@ import {AdminTranslatedStringEdit} from "./content/admin/translated_string/Admin
 import {AdminTechnologyTypeEdit} from "./content/admin/technology_type/AdminTechnologyTypeEdit";
 import {AdminTechnologyEdit} from "./content/admin/technology/AdminTechnologyEdit";
 import {AdminImageEdit} from "./content/admin/image/AdminImageEdit";
+import {AdminProjectEdit} from "./content/admin/project/AdminProjectEdit";
 
 // Show
 import {AdminTranslatedStringShow} from "./content/admin/translated_string/AdminTranslatedStringShow";
 import {AdminTechnologyTypeShow} from "./content/admin/technology_type/AdminTechnologyTypeShow";
 import {AdminTechnologyShow} from "./content/admin/technology/AdminTechnologyShow";
 import {AdminImageShow} from "./content/admin/image/AdminImageShow";
+import {AdminProjectShow} from "./content/admin/project/AdminProjectShow";
 
 // Icons
 import ImageIcon from '@material-ui/icons/Image';
@@ -73,6 +75,8 @@ class AppAdmin extends React.Component {
                     <Resource name="Project" list={AdminProjectList}
                               icon={ProjectIcon}
                               create={AdminProjectCreate}
+                              edit={AdminProjectEdit}
+                              show={AdminProjectShow}
                     />
                     <Resource name="Technology" list={AdminTechnologyList}
                               icon={TechnologyIcon}

@@ -20,6 +20,12 @@ const GET_PROJECT = gql`
             technologies {
                 ...technologyElements
             }
+            images {
+                src
+                alt
+            }
+            github_link
+            testing_link
         }
     }
 
