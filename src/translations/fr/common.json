@@ -14,6 +14,12 @@
       "subtitle": "Voici la liste des technologies que j'ai utilisé au cours de mes projets"
     }
   },
+  "login": {
+    "password": "Mot de passe",
+    "email": "Email",
+    "incorrect_password": "Mot de passe incorrect.",
+    "incorrect_email": "Email incorrect."
+  },
   "footer": {
     "madein": "Créé en"
   },

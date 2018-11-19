@@ -6,7 +6,6 @@ import {getCorrectTranslatedString, truncateOnWord} from "../../../utils/functio
 class ProjectCard extends React.Component {
 
 	static propTypes = {
-	    key: PropTypes.number,
 	    project: PropTypes.object,
         locale: PropTypes.string
 	};
@@ -15,9 +14,13 @@ class ProjectCard extends React.Component {
 	    let descr = this.props.project.description;
 	    let complete_descr = this.props.project.description;
 
-        let technologiesInHTML = '';
-        this.props.project.technologies.forEach(function (element) {
-            technologiesInHTML += '<div class="tag is-primary column is-2" style="margin-left: 0.5em; margin-right: 0.5em;" >' + element.name + '</div>';
+        let technologiesInHTML = [];
+        this.props.project.technologies.forEach(function (element, index) {
+            technologiesInHTML.push(<div key={index} className="tag is-primary column is-2" style={{
+                marginLeft: "0.5em",
+                marginRight: "0.5em"
+            }}
+            >{element.name}</div>);
         });
 
 		return (
@@ -40,7 +43,9 @@ class ProjectCard extends React.Component {
                         <p className={"subtitle is-6"}>
                         { truncateOnWord(getCorrectTranslatedString(this.props.locale, complete_descr), 200) }
                         </p>
-                        <div className={'columns'} dangerouslySetInnerHTML={{__html:  technologiesInHTML}}/>
+                        <div className={'columns'}>
+                            {technologiesInHTML}
+                        </div>
                     </div>
                 </div>
             </NavLink>

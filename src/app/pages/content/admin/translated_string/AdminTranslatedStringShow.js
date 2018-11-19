@@ -1,5 +1,5 @@
 import React from 'react';
-import { Show, RichTextField, TextField, DateField, SimpleShowLayout } from 'react-admin';
+import { Show, TextField, SimpleShowLayout } from 'react-admin';
 
 export const AdminTranslatedStringShow = (props) => (
     <Show {...props}>

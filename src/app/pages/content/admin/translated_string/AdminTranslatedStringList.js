@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Datagrid, TextField, ReferenceField, EditButton, ShowButton } from 'react-admin';
+import { List, Datagrid, TextField, EditButton, ShowButton } from 'react-admin';
 
 export const AdminTranslatedStringList = (props) => (
     <List {...props}>

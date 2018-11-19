@@ -49,8 +49,6 @@ export const buildQueryFactory = (
             queryType
         );
 
-        console.log("THE QUERY IS :", query);
-        console.log("Variables are :", variables);
         return {
             query: gql`
                 ${query}

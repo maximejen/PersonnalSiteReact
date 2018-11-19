@@ -20,8 +20,41 @@ export function truncateOnWord(str, limit) {
     const reg = new RegExp('(?=[' + trimmable + '])');
     const words = str.split(reg);
     let count = 0;
-    return (words.filter(function(word) {
+    return (words.filter(function (word) {
         count += word.length;
         return count <= limit;
     }).join('') + '...');
+}
+
+export async function isLogged() {
+    if (sessionStorage.getItem("userId") === null || sessionStorage.getItem("userId") === "null" || sessionStorage.getItem("userToken") === null || sessionStorage.getItem("userToken") === "null")
+        return false;
+    const url = "http://localhost:4000/logged";
+    const data = JSON.stringify({
+        id: sessionStorage.getItem("userId"),
+        token: sessionStorage.getItem("userToken")
+    });
+    let logged = undefined;
+    await fetch(url, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: data
+    })
+        .catch(err => {
+
+        })
+        .then(response => {
+            response.json()
+                .then(data => {
+                    if (response.status === 401) {
+                        logged = false
+                    } else if (data !== undefined) {
+                        logged = true;
+                    }
+                    console.log(logged);
+                });
+        });
+    return logged;
 }

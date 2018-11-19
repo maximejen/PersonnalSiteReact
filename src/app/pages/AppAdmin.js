@@ -2,7 +2,7 @@ import React from 'react';
 import {Admin, Resource} from 'react-admin';
 import buildPrismaProvider from '../utils/adaptator/index';
 // import buildPrismaProvider from '../utils/ra-data-prisma/src/index';
-import { createMuiTheme } from '@material-ui/core/styles';
+import {createMuiTheme} from '@material-ui/core/styles';
 
 import primary from '@material-ui/core/colors/deepOrange';
 import secondary from '@material-ui/core/colors/orange';
@@ -40,12 +40,25 @@ import ImageIcon from '@material-ui/icons/Image';
 import ProjectIcon from '@material-ui/icons/Work';
 import TranslatedStringIcon from '@material-ui/icons/Translate';
 import TechnologyIcon from '@material-ui/icons/Extension';
+import PropTypes from "prop-types";
+import {Redirect} from "react-router-dom";
+import {isLogged} from "../utils/functions";
 
 class AppAdmin extends React.Component {
-    constructor() {
-        super();
-        this.state = {dataProvider: null};
-    }
+
+    state = {
+        isConnected: this.props.isConnected,
+        dataProvider: null,
+        logged: undefined
+    };
+
+    static propTypes = {
+        isConnected: PropTypes.bool
+    };
+
+    static defaultProps = {
+        isConnected: false
+    };
 
     componentDidMount() {
         buildPrismaProvider({
@@ -55,11 +68,21 @@ class AppAdmin extends React.Component {
         }).then(dataProvider => this.setState({dataProvider}));
     }
 
+    async componentWillMount() {
+        this.setState({
+            logged: await isLogged()
+        });
+    }
+
     render() {
+        if (this.state.isConnected === false && this.state.logged === false)
+            return <Redirect to={"/login"}/>;
         const {dataProvider} = this.state;
 
         if (!dataProvider) {
-            return <div>Loading</div>;
+            return <div className={'column is-12 has-text-centered'}>
+                <img src={'/loader.gif'} alt={"loading..."}/>
+            </div>;
         }
 
         const theme = createMuiTheme({

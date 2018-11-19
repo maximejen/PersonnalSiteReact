@@ -13,24 +13,17 @@ const GET_PROJECTS = gql`
             id
             name
             description {
-                ...descriptionLanguages
+                fr
+                en
             }
             technologies {
-                ...technologyElements
+                name
             }
             images {
                 src
                 alt
             }
         }
-    }
-
-    fragment descriptionLanguages on TranslatedString {
-        fr
-        en
-    }
-    fragment technologyElements on Technology {
-        name
     }
 `;
 
@@ -70,6 +63,7 @@ class ProjectCardList extends React.Component {
                                                 project={project}
                                                 locale={this.props.locale}/>
                         }
+                        return false;
                     }));
                 }}
             </Query>

@@ -23,14 +23,18 @@ class ProjectPageRenderer extends React.Component {
     }
 
     render() {
-
-        let imagesInHTML = '';
-        this.props.project.images.forEach(function (element) {
-            imagesInHTML += '<div class="carousel-item has-background is-active">' +
-                '               <img class="is-background" ' +
-                '               src="' + element.src + '" ' +
-                '               alt="' + element.alt + '" width="640" height="310"/>\n' +
-                '            </div>';
+        let imagesInProps = [];
+        this.props.project.images.forEach(function (element, index) {
+            imagesInProps.push(
+                <div key={index} className="carousel-item has-background is-active">
+                    <img className="is-background"
+                         src={element.src}
+                         alt={element.alt}
+                         width="640"
+                         height="310"
+                    />
+                </div>
+            );
         });
 
         let githubLinkClass = 'tag is-';
@@ -57,8 +61,9 @@ class ProjectPageRenderer extends React.Component {
                     <div className={'column is-5'}>
                         <div
                             className='carousel carousel-animated carousel-animate-slide'>
-                            <div className='carousel-container'
-                                 dangerouslySetInnerHTML={{__html: imagesInHTML}}/>
+                            <div className='carousel-container'>
+                                 {imagesInProps}
+                            </div>
                             <div className="carousel-navigation is-overlay">
                                 <div className="carousel-nav-left">
                                     <i className="fa fa-chevron-left"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Show, RichTextField, TextField, DateField, SimpleShowLayout, ReferenceField } from 'react-admin';
+import { Show, TextField, SimpleShowLayout, ReferenceField } from 'react-admin';
 
 export const AdminTechnologyTypeShow = (props) => (
     <Show {...props}>

@@ -106,7 +106,6 @@ export default introspectionResults => (resource, aorFetchType, queryType, varia
                 }
             }
         });
-        console.log('RESULT', result);
         return result;
     }
 
@@ -133,9 +132,6 @@ export default introspectionResults => (resource, aorFetchType, queryType, varia
             }
         }
     };
-    console.log('QUERY / MUTATION', QUERY_TYPES.includes(aorFetchType)
-        ? encodeQuery(queryType.name, query)
-        : encodeMutation(queryType.name, query));
     return QUERY_TYPES.includes(aorFetchType)
         ? encodeQuery(queryType.name, query)
         : encodeMutation(queryType.name, query);

@@ -69,8 +69,11 @@ class Header extends React.Component {
                     <NavBurger onClick={this.toggleNav} isActive={this.state.isBurgerMode}/>
                 </div>
                 <div className={this.state.isBurgerMode ? 'navbar-menu is-active' : 'navbar-menu'}>
-                    <div className="navbar-start">
+                    <div className="navbar-start" style={{margin: "0px"}}>
                         <NavItem redirectTo={"/projects"} text={ this.props.t('nav.projects', { framework: "react-i18next" }) } iconClass={"fas fa-code"}/>
+                    </div>
+                    <div className="navbar-start">
+                        <NavItem redirectTo={"/admin"} text={"Admin"} iconClass={"fas fa-cogs"}/>
                     </div>
                     <div className="navbar-end">
                         <NavSocialMediaHub isActive={this.state.isBurgerMode}/>

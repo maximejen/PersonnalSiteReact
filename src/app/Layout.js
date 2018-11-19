@@ -24,10 +24,24 @@ class Layout extends React.Component {
 
         this.state = {
             i18n: i18n,
-            locale: i18n.language
+            locale: i18n.language,
+            user: undefined,
+            isConnected: false
         };
 
         this.changeLocale = this.changeLocale.bind(this);
+        this.updateUser = this.updateUser.bind(this);
+    }
+
+    updateUser(newUser) {
+        sessionStorage.setItem("userToken", newUser ? newUser.token : null);
+        sessionStorage.setItem("userName", newUser ? newUser.name : null);
+        sessionStorage.setItem("userId", newUser ? newUser.id : null);
+        sessionStorage.setItem("userEmail", newUser ? newUser.email : null);
+        this.setState({
+            user: newUser,
+            isConnected: !!newUser
+        });
     }
 
     static propTypes = {
@@ -36,6 +50,25 @@ class Layout extends React.Component {
 
     changeLocale(newLocale) {
         this.setState({locale: newLocale});
+    }
+
+    componentDidMount() {
+        if (sessionStorage.getItem("userToken") !== undefined && sessionStorage.getItem("userToken") !== "null") {
+            this.setState({
+                user: {
+                    Token: sessionStorage.getItem("userToken"),
+                    Name: sessionStorage.getItem("userName"),
+                    Id: sessionStorage.getItem("userId"),
+                    Email: sessionStorage.getItem("userEmail")
+                },
+                isConnected: sessionStorage.getItem("userToken") !== null
+            });
+        } else {
+            this.setState({
+                user: undefined,
+                isConnected: false
+            })
+        }
     }
 
     render() {
@@ -65,7 +98,7 @@ class Layout extends React.Component {
                 />
                 <Header onChangeLocale={this.changeLocale}/>
                 <Content>
-                    <Router/>
+                    <Router isConnected={this.state.isConnected} updateUser={this.updateUser}/>
                 </Content>
                 <Footer/>
             </Site>

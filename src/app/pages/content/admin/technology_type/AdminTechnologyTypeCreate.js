@@ -1,5 +1,5 @@
 import React from 'react';
-import { Create, SimpleForm, SimpleFormIterator, ReferenceInput, SelectInput, TextInput } from 'react-admin';
+import { Create, SimpleForm, ReferenceInput, SelectInput, TextInput } from 'react-admin';
 
 export const AdminTechnologyTypeCreate = (props) => (
     <Create {...props}>
