@@ -44,6 +44,8 @@ import PropTypes from "prop-types";
 import {Redirect} from "react-router-dom";
 import {isLogged} from "../utils/functions";
 
+export let dP = null;
+
 class AppAdmin extends React.Component {
 
     state = {
@@ -65,13 +67,17 @@ class AppAdmin extends React.Component {
             clientOptions: {
                 uri: "http://localhost:4466"
             }
-        }).then(dataProvider => this.setState({dataProvider}));
+        }).then(dataProvider => {
+            dP = dataProvider;
+            this.setState({dataProvider: dataProvider});
+        });
     }
 
     async componentWillMount() {
-        this.setState({
-            logged: await isLogged()
-        });
+        if (this.state.logged !== true)
+            this.setState({
+                logged: await isLogged()
+            });
     }
 
     render() {
